@@ -5,9 +5,11 @@
 ## Стек технологий
 
 - **Backend:** Django 5.2, Python 3.12
-- **Database:** PostgreSQL
-- **Frontend:** Tailwind CSS, Alpine.js
-- **Deployment:** Docker, Nginx
+- **Database:** PostgreSQL 16
+- **Frontend:** Tailwind CSS 4.x, Alpine.js 3.x
+- **UI-компоненты:** [shadcn-django](https://github.com/SarthakJariwala/shadcn-django), [django-cotton](https://github.com/wrabit/django-cotton)
+- **Admin:** [Unfold Admin](https://unfoldadmin.com/)
+- **Deployment:** Docker, Nginx, Gunicorn
 
 ## Статус
 
