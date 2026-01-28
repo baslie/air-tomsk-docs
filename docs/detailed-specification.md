@@ -3,6 +3,23 @@
 
 ---
 
+## Оглавление
+
+1. [Сводка по объёму работ](#1-сводка-по-объёму-работ)
+2. [Структура страниц и шаблонов](#2-структура-страниц-и-шаблонов)
+3. [Сводная таблица страниц](#3-сводная-таблица-страниц)
+4. [Функциональные модули](#4-функциональные-модули)
+5. [Технические требования](#5-технические-требования)
+6. [Рекомендуемый стек технологий](#6-рекомендуемый-стек-технологий)
+7. [Рекомендация по стеку](#7-рекомендация-по-стеку)
+8. [Оценка трудозатрат](#8-оценка-трудозатрат-ориентировочно)
+9. [Уточнённые требования](#9-уточнённые-требования)
+10. [Влияние многоязычности на объём работ](#10-влияние-многоязычности-на-объём-работ)
+11. [Открытые вопросы](#11-открытые-вопросы)
+12. [Frontend-стек](#12-frontend-стек)
+
+---
+
 ## 1. Сводка по объёму работ
 
 | Показатель | Значение |
@@ -348,6 +365,258 @@
 2. **Интеграция с ЕСИА** — нужна ли авторизация через Госуслуги?
 3. **Уведомления** — только email или нужны SMS/Telegram?
 4. **Переводы** — кто будет предоставлять английские тексты?
+
+---
+
+## 12. Frontend-стек
+
+### 12.1. Обзор технологий
+
+| Технология | Версия | Назначение |
+|------------|--------|------------|
+| **Tailwind CSS** | 4.x | Utility-first CSS фреймворк |
+| **Alpine.js** | 3.x | Лёгкий JS-фреймворк для интерактивности |
+| **django-cotton** | — | Компонентный подход к Django templates |
+| **shadcn-django** | — | Библиотека UI-компонентов (порт shadcn/ui) |
+| **Unfold Admin** | 0.76+ | Современная тема для Django Admin |
+
+### 12.2. Tailwind CSS
+
+**Описание:** Utility-first CSS фреймворк для быстрой вёрстки без написания кастомного CSS.
+
+**Преимущества для проекта:**
+- Быстрая адаптивная вёрстка (mobile-first)
+- Встроенная поддержка тёмной темы
+- JIT-компиляция — минимальный размер CSS
+- Хорошо документирован
+
+**Установка:**
+```bash
+npm install tailwindcss
+npx tailwindcss init
+```
+
+### 12.3. Alpine.js
+
+**Описание:** Минималистичный JS-фреймворк (~17KB), добавляющий реактивность прямо в HTML.
+
+**Основные директивы:**
+- `x-data` — объявление реактивных данных
+- `x-show` — условное отображение
+- `x-on` / `@click` — обработка событий
+- `x-bind` / `:class` — привязка атрибутов
+- `x-text` — вывод текста
+- `x-for` — циклы
+
+**Пример использования:**
+```html
+<div x-data="{ open: false }">
+    <button @click="open = !open">Меню</button>
+    <nav x-show="open">...</nav>
+</div>
+```
+
+**Преимущества:**
+- Не требует сборки
+- Идеально подходит для Django templates
+- Заменяет jQuery для простых задач
+
+### 12.4. django-cotton — Компонентный подход
+
+**Описание:** Библиотека для создания переиспользуемых компонентов в Django templates с HTML-подобным синтаксисом. Работает как React/Vue компоненты, но для Django.
+
+**GitHub:** https://github.com/wrabit/django-cotton
+
+**Установка:**
+```bash
+pip install django-cotton
+```
+
+**Ключевые возможности:**
+- HTML-подобный синтаксис: `<c-button>`, `<c-card>`
+- Слоты для контента (default и named)
+- Передача props и атрибутов
+- Автодополнение в IDE
+- Полная совместимость с Django templates
+
+**Пример компонента:**
+```html
+<!-- templates/cotton/card.html -->
+<div class="bg-white shadow rounded p-4">
+    <h2>{{ title }}</h2>
+    <p>{{ slot }}</p>
+    <a href="{{ url }}">Подробнее</a>
+</div>
+```
+
+**Использование:**
+```html
+<c-card title="Новость" url="/news/1">
+    Текст новости...
+</c-card>
+```
+
+**Передача атрибутов:**
+```html
+<!-- templates/cotton/input.html -->
+<input type="text" class="border rounded px-3 py-2" {{ attrs }} />
+
+<!-- Использование -->
+<c-input placeholder="Введите имя" name="name" required />
+```
+
+### 12.5. shadcn-django — Библиотека UI-компонентов
+
+**Описание:** Неофициальный порт shadcn/ui для Django. Компоненты копируются в проект через CLI — полный контроль над кодом.
+
+**GitHub:** https://github.com/SarthakJariwala/shadcn-django
+
+**Стек:** Tailwind CSS + Alpine.js + django-cotton
+
+**Установка:**
+```bash
+# Инициализация проекта
+uvx shadcn_django init
+
+# Просмотр доступных компонентов
+uvx shadcn_django list
+
+# Добавление компонентов
+uvx shadcn_django add button
+uvx shadcn_django add card
+uvx shadcn_django add modal
+```
+
+**Зависимости (npm):**
+```bash
+npm install -D tailwindcss tw-animate-css
+```
+
+**Использование компонентов:**
+```html
+<c-button variant="default">Отправить</c-button>
+<c-button variant="outline">Отмена</c-button>
+<c-button variant="destructive">Удалить</c-button>
+```
+
+**Компоненты для проекта АИР ТО:**
+
+| Компонент | Где используется |
+|-----------|-----------------|
+| **button** | Кнопки форм, CTA |
+| **card** | Карточки организаций, проектов, новостей |
+| **accordion** | FAQ, раскрывающиеся блоки |
+| **tabs** | Вкладки в разделах |
+| **modal/dialog** | Модальные окна |
+| **toast** | Уведомления после отправки форм |
+| **input, textarea, select** | Формы обратной связи |
+| **badge** | Статусы проектов |
+| **tooltip** | Подсказки |
+
+**Преимущества:**
+- Знакомый workflow для тех, кто работал с shadcn/ui
+- Полный контроль над кодом компонентов
+- Единый стиль с экосистемой shadcn
+- HTMX-совместимость
+
+### 12.6. Структура frontend-файлов
+
+```
+src/
+├── static/
+│   ├── css/
+│   │   ├── input.css      # Исходный Tailwind
+│   │   └── output.css     # Скомпилированный CSS
+│   └── js/
+│       └── alpine.min.js  # Alpine.js (CDN или локально)
+├── templates/
+│   ├── base.html          # Базовый шаблон
+│   └── cotton/            # shadcn-django компоненты
+│       ├── button.html
+│       ├── card.html
+│       ├── modal.html
+│       ├── input.html
+│       └── ...
+```
+
+### 12.7. Подключение в base.html
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}АИР ТО{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
+```
+
+### 12.8. Unfold Admin — Современная тема Django Admin
+
+**Описание:** Полная замена стандартного интерфейса Django Admin на современный UI. Построен на том же стеке: Tailwind CSS + Alpine.js + HTMX.
+
+**Сайт:** https://unfoldadmin.com/
+
+**Ключевые возможности:**
+- Кастомные дашборды с виджетами, графиками, статистикой
+- Настраиваемое боковое меню с иконками и группировкой
+- Command Palette — быстрый поиск и навигация (Cmd/Ctrl + K)
+- Темизация — готовые цветовые схемы или кастомные
+- Условные поля — динамическое отображение полей в формах
+- Расширенные фильтры — date picker, числовые диапазоны
+- Пагинация inline-записей — для больших наборов данных
+- Библиотека компонентов — для кастомных страниц
+
+**Установка:**
+```bash
+pip install django-unfold
+```
+
+**Конфигурация settings.py:**
+```python
+INSTALLED_APPS = [
+    "unfold",  # ПЕРЕД django.contrib.admin
+    "unfold.contrib.filters",  # расширенные фильтры
+    "unfold.contrib.forms",  # улучшенные формы
+    "unfold.contrib.inlines",  # пагинация inlines
+    "unfold.contrib.import_export",  # если используется django-import-export
+    "django.contrib.admin",
+    # ...
+]
+
+UNFOLD = {
+    "SITE_TITLE": "АИР ТО — Админ-панель",
+    "SITE_HEADER": "Агентство инвестиционного развития",
+    "DASHBOARD_CALLBACK": "apps.core.views.dashboard_callback",
+}
+```
+
+**Использование в admin.py:**
+```python
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+
+@admin.register(News)
+class NewsAdmin(ModelAdmin):
+    list_display = ["title", "date", "is_published"]
+    list_filter = ["is_published", "date"]
+```
+
+**Преимущества для проекта АИР ТО:**
+- Единый визуальный стиль с публичной частью (Tailwind)
+- Удобный интерфейс для контент-менеджеров
+- Дашборд со статистикой (кол-во новостей, заявок, проектов)
+- Не требует написания кастомного CSS для админки
 
 ---
 
