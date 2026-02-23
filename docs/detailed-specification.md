@@ -541,6 +541,7 @@ src/
 
 ### 12.7. Подключение в base.html
 
+{% raw %}
 ```html
 <!DOCTYPE html>
 <html lang="ru">
@@ -560,6 +561,7 @@ src/
 </body>
 </html>
 ```
+{% endraw %}
 
 ### 12.8. Unfold Admin — Современная тема Django Admin
 
