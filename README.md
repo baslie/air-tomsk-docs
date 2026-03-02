@@ -21,13 +21,13 @@
 
 ## Вайрфреймы
 
-| Страница | HTML | Markdown |
-|----------|------|----------|
-| Главная | [index.html](wireframes/html/index.html) | [index.md](wireframes/md/index.md) |
-| Инвестору | [investor.html](wireframes/html/investor.html) | [investor.md](wireframes/md/investor.md) |
-| Регион | [region.html](wireframes/html/region.html) | [region.md](wireframes/md/region.md) |
-| Бренд | [brand.html](wireframes/html/brand.html) | [brand.md](wireframes/md/brand.md) |
-| Новости (список) | [news-list.html](wireframes/html/news-list.html) | [news-list.md](wireframes/md/news-list.md) |
-| Новость (детальная) | [news-detail.html](wireframes/html/news-detail.html) | [news-detail.md](wireframes/md/news-detail.md) |
-| Контакты | [contacts.html](wireframes/html/contacts.html) | [contacts.md](wireframes/md/contacts.md) |
-| Типовая страница | [standard.html](wireframes/html/standard.html) | [standard.md](wireframes/md/standard.md) |
+| Страница | Файл |
+|----------|------|
+| Главная | [index.html](wireframes/index.html) |
+| Инвестору | [investor.html](wireframes/investor.html) |
+| Регион | [region.html](wireframes/region.html) |
+| Бренд | [brand.html](wireframes/brand.html) |
+| Новости (список) | [news-list.html](wireframes/news-list.html) |
+| Новость (детальная) | [news-detail.html](wireframes/news-detail.html) |
+| Контакты | [contacts.html](wireframes/contacts.html) |
+| Типовая страница | [standard.html](wireframes/standard.html) |
