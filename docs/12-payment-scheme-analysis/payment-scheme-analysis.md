@@ -12,14 +12,14 @@
 
 Все подписки оплачиваются в долларах через посредника (казахская карта) с комиссией **7%**. Курс пересчёта: **77,17 ₽/$** (ЦБ РФ на 03.03.2026).
 
-| # | Подписка | $/мес | +7% комиссия | ₽/мес |
-|:-:|----------|------:|-------------:|------:|
-| 1 | Claude MAX 5x (×2 акк.) | $200,00 | $214,00 | 16 514 ₽ |
-| 2 | ChatGPT Plus | $20,00 | $21,40 | 1 651 ₽ |
-| 3 | Google One AI Pro | $19,99 | $21,39 | 1 651 ₽ |
-| 4 | Perplexity Pro | $20,00 | $21,40 | 1 651 ₽ |
-| 5 | Cursor Pro | $20,00 | $21,40 | 1 651 ₽ |
-| | **Итого** | **$279,99** | **$299,59** | **23 119 ₽** |
+| # | Подписка | $/мес | +7% комиссия | ₽/мес | Источник |
+|:-:|----------|------:|-------------:|------:|----------|
+| 1 | Claude MAX 5x (×2 акк.) | $200,00 | $214,00 | 16 514 ₽ | [claude.com/pricing/max](https://claude.com/pricing/max) |
+| 2 | ChatGPT Plus | $20,00 | $21,40 | 1 651 ₽ | [chatgpt.com/pricing](https://chatgpt.com/pricing) |
+| 3 | Google One AI Pro | $19,99 | $21,39 | 1 651 ₽ | [one.google.com](https://one.google.com/intl/en/about/google-ai-plans/) |
+| 4 | Perplexity Pro | $20,00 | $21,40 | 1 651 ₽ | [perplexity.ai](https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you) |
+| 5 | Cursor Pro | $20,00 | $21,40 | 1 651 ₽ | [cursor.com/pricing](https://www.cursor.com/pricing) |
+| | **Итого** | **$279,99** | **$299,59** | **23 119 ₽** | |
 
 ---
 
@@ -91,16 +91,3 @@
 **Для исполнителя:** подписки оплачены клиентом отдельными строками — предоплата за работу (73 128 ₽) не расходуется на инструменты, баланс стабилен на протяжении всего проекта.
 
 **Для клиента:** общая сумма не увеличивается, сохраняется схема 30/70 для оплаты работы, расходы на подписки прозрачны и вынесены в отдельные строки.
-
----
-
-## Источники цен (март 2026)
-
-| Подписка | Цена | Источник |
-|----------|------|----------|
-| Claude MAX 5x | $100/мес | [claude.com/pricing/max](https://claude.com/pricing/max) |
-| ChatGPT Plus | $20/мес | [chatgpt.com/pricing](https://chatgpt.com/pricing) |
-| Google One AI Pro | $19,99/мес | [one.google.com](https://one.google.com/intl/en/about/google-ai-plans/) |
-| Perplexity Pro | $20/мес | [perplexity.ai](https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you) |
-| Cursor Pro | $20/мес | [cursor.com/pricing](https://www.cursor.com/pricing) |
-| Курс USD/RUB | 77,17 ₽/$ | ЦБ РФ, 03.03.2026 |
